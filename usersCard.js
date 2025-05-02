@@ -3,12 +3,18 @@ const user = {
     age: 28,
     city: 'Kyiv',
     country: 'Ukraine',
-  };
-
-  let userInfo = 'User card:\n';
   
-  for (const [key, value] of Object.entries(user)) {
-    userInfo += `${key}: ${value}\n`;
-  }
 
-  alert(userInfo);
+  getUserInfo() {
+    let info = 'User card:\n';
+    for (const [key, value] of 
+        Object.entries(this)) {
+            if (typeof value !== 'function') {
+                info += `${key}: ${value}\n`;
+            }
+        }
+        return info;
+    }
+};
+
+  alert(user.getUserInfo());
